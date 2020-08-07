@@ -1,0 +1,104 @@
+var app = angular.module("myApp", []); 
+
+app.controller('CtrlInterview', function($scope) {
+  $scope.name = "";
+  $scope.Skilset = "";
+  $scope.Experience='';
+  $scope.DateofInterview='';
+  $scope.status='';
+    //console.log($("#txtName").val());
+ //console.log("candidate List");
+    //  console.log($scope.i_obj);
+  
+ // var i_temp={'name':'Priya', 's':'0'}
+$scope.index=0;
+
+  $scope.i_obj =[{}];
+  
+  $scope.save=function(){
+  
+    
+      if($("#txtName").val()==""){
+        alert("Kindly type the name");
+        return false;
+        
+      }
+
+    
+   $scope.i_obj.push({sno:$scope.index+1,
+     name:$scope.name,
+                  Skilset:$scope.Skilset,
+                  Experience:  $scope.Experience,
+                  DateofInterview: $scope.DateofInterview,
+                  status :  $scope.status});
+    
+    $scope.Clear();
+    
+    console.log($scope.i_obj);
+    $scope.index=$scope.index+1;
+    
+  }
+  
+  $scope.delete=function(name){
+    
+    //console.log("View ");
+    //console.log(name);
+    $scope.delIndex=0;
+    
+    for(var i=0;i<$scope.i_obj.length;i++){
+      //console.log("Array Object")
+      //console.log($scope.i_obj[i].name);
+      
+      if($scope.i_obj[i].name==name){
+        $scope.delIndex=$scope.i_obj[i].sno;
+         console.log($scope.delIndex);
+      }
+    }    
+   
+    //$scope.i_obj.slice($scope.delIndex)
+    $scope.i_obj.splice($scope.delIndex,1);
+   
+    console.log($scope.i_obj);
+  }
+  
+   $scope.update=function(name,Skilset,Experience,DateofInterview,status){
+    
+    //console.log("View ");
+    //console.log(name);
+    $scope.upIndex=0;
+    
+    for(var i=0;i<$scope.i_obj.length;i++){
+      //console.log("Array Object")
+      //console.log($scope.i_obj[i].name);
+      
+      if($scope.i_obj[i].name==name){
+      
+        $scope.i_obj[i].Skilset=Skilset;
+         $scope.i_obj[i].name=name;
+         $scope.i_obj[i].Experience=Experience;
+         $scope.i_obj[i].DateofInterview=DateofInterview;
+         $scope.i_obj[i].status=status;
+        
+        console.log(":::Updated List:::")
+         console.log($scope.i_obj[i]);
+      }
+    }    
+   
+    //$scope.i_obj.slice($scope.delIndex)
+   // $scope.i_obj.splice($scope.delIndex,1);
+   
+    console.log($scope.i_obj);
+  }
+   
+  $scope.Clear=function(){
+  $scope.name = "";
+  $scope.Skilset = "";
+  $scope.Experience='';
+  $scope.DateofInterview='';
+  $scope.status='';
+  
+  }
+  
+});
+
+

@@ -1,0 +1,97 @@
+			<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body ng-app="myApp">
+<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+
+  <h1>Candidate List -Save</h1>
+  <div ng-controller="CtrlInterview">
+  
+  <table>
+    <tr>
+      <td>
+        name<span>*</span> : <input type="text"  id="txtName" ng-Model="name">
+  
+      </td>
+    </tr>
+    <tr>
+      <td>
+  Skilset : 
+  <input type="text" id="txtSkill" ng-Model="Skilset">
+      </td>
+       </tr>
+    <tr>
+   
+      <td>Experience : 
+       <input type="text" ng-Model="Experience">
+   
+        </td> </tr>
+    <tr>
+   
+ <td>DateofInterview : 
+       <input type="text" ng-Model="DateofInterview">
+   
+        </td> </tr>
+    <tr>
+   
+<td>status : 
+       <input type="text" ng-Model="status">
+   
+        </td>
+    </tr>
+    <tr>
+      <td align="left">
+        <input type="button"
+               ng-click="save()" name="save" value="Save">
+      
+        <input type="button"
+               ng-click="delete(name)" name="Delete" 
+               value="Delete">
+        
+         <input type="button"
+               ng-click="update(name,Skilset,Experience,DateofInterview,status)" name="Update" 
+               value="Update">
+     
+     
+      </td>
+
+    </tr>
+  </table>
+    
+    <h2>Candidate List:</h2>
+    <table>
+      <tr>
+        <th>sno</th>
+        <th>name</th>
+        <th>Skilset</th>
+        <th>Experience</th>
+        <th>DateofInterview</th>
+        <th>status</th>
+      </tr>
+      <tr ng-repeat="value in i_obj">
+        
+        <td> {{value.sno}}</td>
+          <td> {{value.name}}</td>
+        <td>{{value.Skilset}}</td>
+         <td>{{value.Experience}}</td>
+         <td>{{value.DateofInterview}}</td>
+         <td>{{value.status}}</td>
+      </tr>
+    </table>
+    
+    
+      
+  </div>
+  
+   
+  </div>
+  
+  
+</body>
+</html>
